@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{%import 'macros.html' as macro%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <!--Display profile photo-->
+                {% if user.profile_pic_path %}
+                <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="Profile pic" class="card-img-top">
+                {%else%}
+                <img src="{{url_for('static',filename='photos/default.jpg')}}" alt="Profile pic" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <h1 class="card-title">{{user.firstname}} {{user.lastname}}</h1>
+                    <h3 class="card-title"> {{user.username| capitalize}} </h3>
+                    {% if user.bio %}
+                    <p class="card-text"> {{user.bio}}</p>
+                    {%else%}
+                    <p class="card-text"> {{user.username| capitalize}} has no bio.</p>
+                    {% endif %}
+                    <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+                    <form class="my-3" action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
+                        enctype="multipart/form-data">
+
+                        <input type="file" name="photo" class="form-control mb-2" required>
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 my-sm-3">
+            <h2 class="text-center">My Blogs</h2>
+            <hr>
+            <div class="row">
+                {{macro.displayBlogs(blogs)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
