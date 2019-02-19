@@ -9,7 +9,7 @@
 This is a web application for adding up blogs and commenting on existing blogs
 
 ## Link to live site
- 'coming soon'
+ https://carlosstoneblog.herokuapp.com
 
 ## Setup/Installation Requirements
 
