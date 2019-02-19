@@ -4,6 +4,8 @@ from . import main
 from .forms import UpdateProfile, AddBlog, CommentForm
 from ..models import User, Blog, Comment
 from .. import db, photos
+import requests
+import json
 
 
 # Views
@@ -14,8 +16,13 @@ def index():
     """
     blogs = Blog.query.all()
     users = User.query.all()
+    
+    
     title = 'Welcome to blogs!'
-    return render_template('index.html', title = title, blogs = blogs, users = users)
+    display=requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
+    print(display)
+
+    return render_template('index.html', title = title, blogs = blogs, users = users,display=display)
 
 @main.route('/user/<uname>')
 def profile(uname):
