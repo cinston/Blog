@@ -40,6 +40,9 @@ Create a 'start.sh' file and paste the following where appropriate:
 - `export MAIL_PASSWORD='<password>'`
 - `python3.6 manage.py server`
 
+### Known Bugs
+After signing in there might be an error that am working on but the thing is that your profile will have already been created, so just go back and login 
+
 ### Install the dependencies
 
 Install dependancies that will create an environment for the app to run.
