@@ -2,9 +2,9 @@ from flask_wtf import FlaskForm
 from wtforms import TextAreaField, StringField, SubmitField, SelectField, FileField
 from wtforms.validators import Required
 
-class AddPitch(FlaskForm):
+class AddBlog(FlaskForm):
     title = StringField("Blog Title", validators = [Required()])
-    pitch = TextAreaField("Description", validators = [Required()])
+    blog = TextAreaField("Description", validators = [Required()])
     category = SelectField(
         "category",
         choices=[("interview", "interview"),("funny","funny"),("promotion","promotion"),("product","product"),("random","random")],validators = [Required()]

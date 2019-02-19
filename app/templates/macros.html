@@ -1,0 +1,51 @@
+{% macro displayBlog(blogs)%}
+{%for pitch in blogs%}
+<div class="col-md-6 col-sm-6 mb-3 d-flex">
+    <div class="card flex-fill">
+        <div class="card-body">
+            {{categoryBadge(blog.category)}}
+            <h4 class="card-title">{{blog.title}}</h4>
+            <p class="card-text">{{blog.description}}</p>
+            </p>
+            <a href="/blog/{{blog.id}}" class="btn btn-outline-info">View Blog</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{%endmacro%}
+
+{%macro displayComments(comments_list)%}
+{%for comment in comments_list%}
+<div class="media my-3">
+    {% if comment.user.profile_pic_path %}
+    <img src="{{url_for('static',filename=comment.user.profile_pic_path)}}" style="height: 40px; width: 40px; border-radius: 50%"
+        alt="Profile pic" class="card-img-top">
+    {%else%}
+    <img src="{{url_for('static',filename='photos/default.jpg')}}" style="height: 40px; width: 40px; border-radius: 50%"
+        alt="Profile pic" class="card-img-top">
+    {% endif %}
+    <div class="media-body ml-3">
+        <h5 class="my-0">{{comment.user.username}}</h5>
+        {{comment.content}}
+    </div>
+</div>
+{%endfor%}
+{%endmacro%}
+
+{% macro categoryBadge(category) %}
+{% if category == 'promotion' %}
+<span class="
+        badge badge-pill badge-info p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'product'%}
+<span class="badge badge-pill badge-danger p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'boring'%}
+<span class="badge badge-pill badge-success p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'random'%}
+<span class="badge badge-pill badge-primary p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'science'%}
+<span class="badge badge-pill badge-warning p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'sports'%}
+<span class="badge badge-pill badge-dark p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% elif category == 'technology'%}
+<span class="badge badge-pill badge-info p-2 mb-2" style="font-size: 1em">{{category}}</span>
+{% endif %} {% endmacro %}

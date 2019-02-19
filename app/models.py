@@ -95,7 +95,7 @@ class Blog(db.Model):
 
     @classmethod
     def get_blog(cls,id):
-        pitch = Pitch.query.filter_by(id=id).first()
+        blog = Blog.query.filter_by(id=id).first()
 
         return blog
 

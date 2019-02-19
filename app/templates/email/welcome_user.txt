@@ -1,0 +1,3 @@
+Hello {{user.username}}
+
+Welcome to the most amazing Blog App!
