@@ -10,6 +10,11 @@ This is a web application for adding up blogs and commenting on existing blogs
 
 ## Link to live site
  https://carlosstoneblog.herokuapp.com
+ 
+## User Requirements
+- One should be able to sign in or register if he or she is a new user
+- One should see various blogs and select the ones they prefer
+- One should comment on the blogs
 
 ## Setup/Installation Requirements
 
