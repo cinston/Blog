@@ -18,7 +18,7 @@ def login():
             login_user(user, login_form.remember.data)
             return redirect(url_for('main.index'))
         flash('Invalid username or password')
-    title = 'Login to pitch app'
+    title = 'Login to blog app'
 
 
     return render_template('auth/login.html')
